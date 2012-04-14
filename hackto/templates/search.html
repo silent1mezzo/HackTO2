@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load around %}
 {% block content %}
     <div class="container-fluid">
         <div class="row-fluid">
@@ -54,6 +54,10 @@
                 title: 'Your Location',
                 icon:'http://www.google.com/intl/en_us/mapfiles/ms/micons/blue-dot.png',
             });
+            infowindow = new google.maps.InfoWindow({
+                content: "holding..."
+            });
+
     
             {% for category,companies in businesses.items %}
                 {% for company in companies %}
@@ -61,10 +65,21 @@
                         title: '{{ company.name }}',
                         map: map,
                         position: new google.maps.LatLng('{{ company.geoCode.latitude }}', '{{ company.geoCode.longitude }}'),
+                        icon:'{% icon category %}',
                     });
                     markers.push(marker);
                 {% endfor %}
             {% endfor %}
+
+
+            for (var i = 0; i < markers.length; i++) {
+                var marker = markers[i];
+                google.maps.event.addListener(marker, 'click', function () {
+                    // where I have added .html to the marker object.
+                    infowindow.setContent(this.title);
+                    infowindow.open(map, this);
+                });
+            }
         });
 
     </script>

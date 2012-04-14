@@ -87,10 +87,7 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="{{ STATIC_URL }}js/jquery.js"></script>
     <script src="{{ STATIC_URL }}js/bootstrap.js"></script>
-    <script type="text/javascript">
-        var blueIcon = new GIcon(G_DEFAULT_ICON);
-        blueIcon.image = "http://www.google.com/intl/en_us/mapfiles/ms/micons/blue-dot.png";
-    </script>
+   
     {% block extra_js %}
         <script src="http://maps.googleapis.com/maps/api/js?key={{ MAPS_API_KEY }}&sensor=false" type="text/javascript"></script>
     {% endblock %}
