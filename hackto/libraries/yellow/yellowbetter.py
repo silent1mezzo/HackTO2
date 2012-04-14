@@ -6,22 +6,39 @@ class YellowBetterAPI(YellowAPI):
     def __init__(self, api_key, where, uid, test_mode=True, format='JSON', handlers=[]):
         super(YellowBetterAPI, self).__init__(api_key, test_mode, format, handlers)
 
-        self.categories =   {   'mover': 'mover',
-                                'decorator': 'decorator', 
+        self.categories =   {   'movers': 'mover',
+                                'decorators': 'decorator', 
                                 'insurance': 'insurance',
                                 'landscaping': 'lawn',
-                                'postal': 'postal',
-                                'telephone': 'telephone',
-                                'bank': 'bank',
-                                'dry cleaner': 'dry cleaner',
-                                'grocery store': 'grocery',
-                                'school': 'school',
+                                'post offices': 'postal',
+                                'telcos': 'telephone',
+                                'banks': 'bank',
+                                'dry cleaners': 'dry cleaner',
+                                'grocery stores': 'grocery',
+                                'schools': 'school',
+                                'day cares': 'day care',
+                                'churches': 'church',
+                                'gas stations': 'gas station',
+                                'hospitals': 'hospital',
+                                'mechanics': 'mechanic',
+                                'restaurants': 'restaurant',
+                                'shopping': 'plaza',
+                                'hair dressers': 'hair',
+                                'pharmacy': 'pharmacy',
                             }
         self.where = where
         self.uid = uid
    
     def availableCategories(self):
         return self.categories.keys() 
+    
+    def categoriesAndBusinesses(self):
+        result = {}
+        for category in self.categories.keys():
+            bizListings = self.find_inArea(what=category)
+            result[category] = [biz for biz in bizListings]
+        return result
+
     def find_inArea(self, what, page=None, page_len=None,
             sflag=None, lang=None, maxDistance=float(1.0), debug=0, maxResults=10):
         where = self.where
