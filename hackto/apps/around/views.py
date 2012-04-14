@@ -27,7 +27,6 @@ def search(request):
         form = SearchForm(request.POST)
         if form.is_valid():
             address = form.cleaned_data['address']
-            postal_code = form.cleaned_data['postal_code']
     else:
         form = SearchForm()
 
