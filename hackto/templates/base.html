@@ -61,7 +61,8 @@
                         <div class="search">
                             <form class="form-inline" method='post' action='{% url search %}'>
                                 {% csrf_token %}
-                                <input type="text" class="input-xxlarge" id="input01">
+                                {{ form.address }} or 
+                                {{ form.postal_code }}
                                 <button type="submit" class="btn btn-large btn-orange">Search</button>
                             </form>
                         </div>

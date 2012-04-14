@@ -1,11 +1,12 @@
 from django.shortcuts import  render_to_response
 from django.template import RequestContext
-
+from around.forms import SearchForm
 # Create your views here.
 def index(request):
     template_name = 'base.html'
     context = RequestContext(request)
     dict = {}
+    dict['form'] = SearchForm()
 
     return render_to_response(
         template_name,
@@ -18,6 +19,15 @@ def search(request):
     context = RequestContext(request)
     dict = {}
 
+    if request.POST:
+        form = SearchForm(request.POST)
+        if form.is_valid():
+            address = form.cleaned_data['address']
+            postal_code = form.cleaned_data['postal_code']
+    else:
+        form = SearchForm()
+
+    dict['form'] = form
     return render_to_response(
         template_name,
         dict,
