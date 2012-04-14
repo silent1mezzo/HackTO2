@@ -6,7 +6,10 @@
             <div class="span12">
                 <div class="search">
                     <form class="form-inline" method='post' action='{% url search %}'>
-                        <input type="text" class="input-xxlarge" id="input01">
+                        {% csrf_token %}
+                        {{ form.errors }}
+                        {{ form.address }} or 
+                        {{ form.postal_code }}
                         <button type="submit" class="btn btn-large btn-orange">Search</button>
                     </form>
                 </div>

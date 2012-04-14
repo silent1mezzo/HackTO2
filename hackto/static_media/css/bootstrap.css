@@ -772,15 +772,19 @@ select:focus {
   width: 60px;
 }
 .input-small {
+  padding: 9px 14px;
   width: 90px;
 }
 .input-medium {
+  padding: 9px 14px;
   width: 150px;
 }
 .input-large {
+  padding: 9px 14px;
   width: 210px;
 }
 .input-xlarge {
+  padding: 9px 14px;
   width: 270px;
 }
 .input-xxlarge {
