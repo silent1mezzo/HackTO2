@@ -1,6 +1,10 @@
 from django.shortcuts import  render_to_response
 from django.template import RequestContext
+from django.conf import settings
 from around.forms import SearchForm
+import requests
+import json
+
 # Create your views here.
 def index(request):
     template_name = 'base.html'
@@ -44,3 +48,14 @@ def about(request):
         dict,
         context,
     )
+
+def get_lat_long(address):
+    base_url = 'http://maps.google.com/maps/geo'
+    data = {'q': address, 'key': settings.MAPS_API_KEY}
+    results = requests.get(base_url, params=data)
+
+    results = json.loads(results.text)
+    print results.get('Placemark')[0]
+    lon = results.get('Placemark')[0]['Point']['coordinates'][0]
+    lat = results.get('Placemark')[0]['Point']['coordinates'][1]
+    return (lat,lon)
