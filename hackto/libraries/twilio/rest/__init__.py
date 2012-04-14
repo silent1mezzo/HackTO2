@@ -1,21 +1,21 @@
 import logging
 import os
-from twilio import TwilioException
-from twilio.rest.resources import make_request
-from twilio.rest.resources import Accounts
-from twilio.rest.resources import Applications
-from twilio.rest.resources import AuthorizedConnectApps
-from twilio.rest.resources import Calls
-from twilio.rest.resources import CallerIds
-from twilio.rest.resources import ConnectApps
-from twilio.rest.resources import Notifications
-from twilio.rest.resources import Recordings
-from twilio.rest.resources import Transcriptions
-from twilio.rest.resources import Sms
-from twilio.rest.resources import Participants
-from twilio.rest.resources import PhoneNumbers
-from twilio.rest.resources import Conferences
-from twilio.rest.resources import Sandboxes
+from libraries.twilio import TwilioException
+from libraries.twilio.rest.resources import make_request
+from libraries.twilio.rest.resources import Accounts
+from libraries.twilio.rest.resources import Applications
+from libraries.twilio.rest.resources import AuthorizedConnectApps
+from libraries.twilio.rest.resources import Calls
+from libraries.twilio.rest.resources import CallerIds
+from libraries.twilio.rest.resources import ConnectApps
+from libraries.twilio.rest.resources import Notifications
+from libraries.twilio.rest.resources import Recordings
+from libraries.twilio.rest.resources import Transcriptions
+from libraries.twilio.rest.resources import Sms
+from libraries.twilio.rest.resources import Participants
+from libraries.twilio.rest.resources import PhoneNumbers
+from libraries.twilio.rest.resources import Conferences
+from libraries.twilio.rest.resources import Sandboxes
 from urllib import urlencode
 from urlparse import urljoin
 

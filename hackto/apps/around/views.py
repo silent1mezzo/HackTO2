@@ -1,7 +1,9 @@
 from django.shortcuts import  render_to_response
 from django.template import RequestContext
+from django.http import HttpResponse
 from django.conf import settings
 from around.forms import SearchForm
+from django.views.decorators.csrf import csrf_exempt
 import requests
 import json
 
@@ -9,7 +11,7 @@ import json
 
 from libraries.yellow.yellowbetter import YellowBetterAPI
 from libraries.yellow import yellowcache
-
+from libraries.twilio.test_sms import send_message
 # Create your views here.
 def index(request):
     template_name = 'base.html'
@@ -80,6 +82,16 @@ def company(request, id):
         context,
     )
 
+@csrf_exempt
+def send_addresses(request):
+    rdict = {'result': 'OK'}
+    if request.POST:
+        category = request.POST.get('category')
+        address = request.POST.get('address')
+        send_message(address, category)
+
+    json_data = json.dumps(rdict, ensure_ascii=False)
+    return HttpResponse(json_data, mimetype='application/javascript')
 
 def about(request):
     template_name = 'about.html'

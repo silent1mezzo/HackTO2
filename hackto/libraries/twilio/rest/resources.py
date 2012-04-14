@@ -1,9 +1,9 @@
 import re
 import datetime
 import logging
-import twilio
-from twilio import TwilioException
-from twilio import TwilioRestException
+import libraries.twilio as twilio
+from libraries.twilio import TwilioException
+from libraries.twilio import TwilioRestException
 from urllib import urlencode
 from urlparse import urlparse
 
@@ -20,7 +20,7 @@ except ImportError:
 try:
     import httplib2
 except ImportError:
-    from twilio.contrib import httplib2
+    from libraries.twilio.contrib import httplib2
 
 
 def transform_params(p):

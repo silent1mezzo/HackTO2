@@ -1,3 +1,7 @@
+h1 {
+    text-aling: center;
+}
+
 .results {
     width: 300px;
     height: 600px;
@@ -19,4 +23,13 @@
 .results .distance {
     padding:10px;
     float: right;
+}
+
+.results .gutter{
+    display: inline-block;
+    padding-right: 10px;
+}
+
+.results .title{
+    display: inline-block;
 }

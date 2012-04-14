@@ -19,7 +19,9 @@
                 <div class="results">
                     {% for category,companies in businesses.items %}
                         <li>
-                            <div class="gutter"></div>
+                            <div class="gutter">
+                                <img src="{% icon category %}" title="{{ category }}">
+                            </div>
                             <div class="title">
                                 <a href="{% url category_list category|urlencode %}?address={{ address }}">{{ category|title }}</a> ({{ companies|length }})
                             </div>
