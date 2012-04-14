@@ -15,6 +15,11 @@
             </div>
         </div>
         <div class="row-fluid">
+            <div class="span12 alert alert-warning">
+                You're currently viewing <strong>{{ businesses|length }}</strong> businesses tagged with <strong>{{ category }}</strong>
+            </div>
+        </div>
+        <div class="row-fluid">
             <div class="span4">
                 <div class="results">
                     {% for company in businesses %}
@@ -50,7 +55,7 @@
             var markers = [];
             var myOptions = {
                 center: new google.maps.LatLng(LAT, LON),
-                zoom: 14,
+                zoom: 13,
                 mapTypeId: google.maps.MapTypeId.ROADMAP,
             };
             var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
@@ -65,6 +70,7 @@
                     title: '{{ company.name }}',
                     map: map,
                     position: new google.maps.LatLng('{{ company.geoCode.latitude }}', '{{ company.geoCode.longitude }}'),
+                    icon:'{% icon category %}',
                 });
                 markers.push(marker);
             {% endfor %}

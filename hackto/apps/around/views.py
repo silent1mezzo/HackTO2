@@ -57,7 +57,8 @@ def category(request, category):
     address = request.GET.get('address')
     dict['address'] = address
     dict['lat'],dict['lon'] = get_lat_long(address)
-    dict['businesses'] = BUSINESSES[category]
+    dict['businesses'] = yellowcache.getResults(address)[category]
+    dict['category'] = category
     dict['form'] = form
     return render_to_response(
         template_name,
