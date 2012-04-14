@@ -4,7 +4,8 @@ from django.conf import settings
 from around.forms import SearchForm
 import requests
 import json
-
+from libraries.yellow.yellowbetter import YellowBetterAPI
+from libraries.yellow import yellowcache
 # Create your views here.
 def index(request):
     template_name = 'base.html'
@@ -27,7 +28,9 @@ def search(request):
         form = SearchForm(request.POST)
         if form.is_valid():
             address = form.cleaned_data['address']
-
+            #api = YellowBetterAPI(api_key= '', where = address, uid='hackto2', test_mode=False)
+            #dict['businesses'] = api.categoriesAndBusinesses()
+            dict['businesses'] = yellowcache.getResults(address)
             dict['lat'],dict['lon'] = get_lat_long(address)
     else:
         form = SearchForm()

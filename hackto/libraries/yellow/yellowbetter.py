@@ -41,7 +41,7 @@ class YellowBetterAPI(YellowAPI):
         return result
 
     def find_inArea(self, what, page=None, page_len=None,
-            sflag=None, lang=None, maxDistance=float(1.0), debug=0, maxResults=10):
+            sflag=None, lang=None, maxDistance=float(15.0), debug=0, maxResults=10):
         where = self.where
         uid = self.uid
         try:
