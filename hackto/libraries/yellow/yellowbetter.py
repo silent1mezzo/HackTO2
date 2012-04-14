@@ -34,7 +34,8 @@ class YellowBetterAPI(YellowAPI):
     
     def categoriesAndBusinesses(self):
         result = {}
-        for category in self.categories.keys():
+        categories = self.availableCategories()
+        for category in categories:
             bizListings = self.find_inArea(what=category)
             result[category] = [biz for biz in bizListings]
         return result
@@ -60,7 +61,7 @@ class YellowBetterAPI(YellowAPI):
             if float(listing.get('distance')) < float(maxDistance):
                 self.clean_listing(listing)
                 filteredResults.append(listing)
-                if len(filteredResults) >= maxResults:
+                if len(filteredResults) == maxResults:
                     break
         if debug:        
             for result in filteredResults:
