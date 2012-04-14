@@ -4007,6 +4007,13 @@ a.thumbnail:hover {
   line-height: 27px;
   color: inherit;
 }
+.hero-unit p.small {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 200;
+  line-height: 27px;
+  color: inherit;
+}
 .pull-right {
   float: right;
 }
