@@ -17,12 +17,17 @@
         <div class="row-fluid">
             <div class="span4">
                 <div class="results">
-                    {% for category,companies in businesses.items %}
+                    {% for company in businesses %}
                         <li>
                             <div class="gutter"></div>
-                            <div class="title">
-                                <a href="{% url category_list category|urlencode %}?address={{ address }}">{{ category|title }}</a> ({{ companies|length }})
+                            <div class="distance">
+                                {{ company.distance }} km
                             </div>
+                            <div class="title">
+                                <a href="{% url company_info company.id %}?address={{ address }}">{{ company.name }}</a><br />
+                                {{ company.address.street }}, {{ company.address.city }}, {{ company.address.prov }}<br />
+                            </div>
+
                         </li>
                     {% endfor %}
                 </div>
@@ -37,6 +42,7 @@
 
 {% block extra_js %}
     <script src="http://maps.googleapis.com/maps/api/js?key={{ MAPS_API_KEY }}&sensor=false" type="text/javascript"></script>
+
     <script type="text/javascript">
         $(document).ready(function() {
             var LAT = '{{ lat }}';
@@ -54,16 +60,13 @@
                 title: 'Your Location',
                 icon:'http://www.google.com/intl/en_us/mapfiles/ms/micons/blue-dot.png',
             });
-    
-            {% for category,companies in businesses.items %}
-                {% for company in companies %}
-                    var marker = new google.maps.Marker({
-                        title: '{{ company.name }}',
-                        map: map,
-                        position: new google.maps.LatLng('{{ company.geoCode.latitude }}', '{{ company.geoCode.longitude }}'),
-                    });
-                    markers.push(marker);
-                {% endfor %}
+            {% for company in businesses %}
+                var marker = new google.maps.Marker({
+                    title: '{{ company.name }}',
+                    map: map,
+                    position: new google.maps.LatLng('{{ company.geoCode.latitude }}', '{{ company.geoCode.longitude }}'),
+                });
+                markers.push(marker);
             {% endfor %}
         });
 

@@ -1,0 +1,22 @@
+.results {
+    width: 300px;
+    height: 600px;
+    overflow:auto; 
+}
+
+.results li {
+    border-bottom: 1px solid #D9D9D9;
+    list-style-type: none;
+    overflow: hidden;
+    padding: 10px;
+    position: relative;
+}
+
+.results li:hover {
+    background:#f0f4f5;
+}
+
+.results .distance {
+    padding:10px;
+    float: right;
+}
