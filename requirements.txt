@@ -1,3 +1,4 @@
 Django==1.4
-South
-Werkzeug
+South==0.7.4
+Werkzeug==0.8.3
+django-extensions==0.8
