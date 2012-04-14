@@ -3,3 +3,10 @@ South==0.7.4
 Werkzeug==0.8.3
 django-extensions==0.8
 requests
+sphinx
+mock
+httplib2
+nose
+pyjwt
+simplejson
+unittest2
