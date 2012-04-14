@@ -27,6 +27,8 @@ def search(request):
         form = SearchForm(request.POST)
         if form.is_valid():
             address = form.cleaned_data['address']
+
+            dict['lat'],dict['lon'] = get_lat_long(address)
     else:
         form = SearchForm()
 

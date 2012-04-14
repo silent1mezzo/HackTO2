@@ -8,8 +8,7 @@
                     <form class="form-inline" method='post' action='{% url search %}'>
                         {% csrf_token %}
                         {{ form.errors }}
-                        {{ form.address }} or 
-                        {{ form.postal_code }}
+                        {{ form.address }}
                         <button type="submit" class="btn btn-large btn-orange">Search</button>
                     </form>
                 </div>

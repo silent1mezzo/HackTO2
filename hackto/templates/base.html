@@ -61,8 +61,7 @@
                         <div class="search">
                             <form class="form-inline" method='post' action='{% url search %}'>
                                 {% csrf_token %}
-                                {{ form.address }} or 
-                                {{ form.postal_code }}
+                                {{ form.address }}
                                 <button type="submit" class="btn btn-large btn-orange">Search</button>
                             </form>
                         </div>
@@ -85,6 +84,10 @@
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript">
+        $LAT = {{ lat }};
+        $LON = {{ lon }};
+    </script>
     <script src="{{ STATIC_URL }}js/jquery.js"></script>
     <script src="{{ STATIC_URL }}js/bootstrap.js"></script>
     <script src="http://maps.googleapis.com/maps/api/js?key={{ MAPS_API_KEY }}&sensor=false" type="text/javascript"></script>
