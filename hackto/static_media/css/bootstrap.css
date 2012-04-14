@@ -2083,7 +2083,9 @@ table .span24 {
 .btn-info,
 .btn-info:hover,
 .btn-inverse,
-.btn-inverse:hover {
+.btn-inverse:hover,
+.btn-orange,
+.btn-orange:hover {
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
   color: #ffffff;
 }
@@ -2209,6 +2211,30 @@ table .span24 {
   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
   filter: progid:dximagetransform.microsoft.gradient(enabled=false);
 }
+
+.btn-orange {
+  background-color: #D04313;
+  background-image: -moz-linear-gradient(top, #de6c43, #D04313);
+  background-image: -ms-linear-gradient(top, #de6c43, #D04313);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#de6c43), to(#D04313));
+  background-image: -webkit-linear-gradient(top, #de6c43, #D04313);
+  background-image: -o-linear-gradient(top, #de6c43, #D04313);
+  background-image: linear-gradient(top, #de6c43, #D04313);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#de6c43', endColorstr='#D04313', GradientType=0);
+  border-color: #D04313 #D04313 #D04313;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  filter: progid:dximagetransform.microsoft.gradient(enabled=false);
+}
+
+.btn-orange:hover,
+.btn-orange:active,
+.btn-orange.active,
+.btn-orange.disabled,
+.btn-orange[disabled] {
+  background-color: #D04313;
+}
+
 .btn-info:hover,
 .btn-info:active,
 .btn-info.active,
